@@ -76,7 +76,6 @@ exports = function (payload) {
   
 const projection = {
  "user": 1,
- "password": 1,
 }
   const mongodb = context.services.get("mongodb-atlas");
   const mycollection = mongodb.db("LoginDb").collection("Users");
@@ -86,12 +85,15 @@ const projection = {
   .then(result => {
     console.log(result)
     if(result) {
-      console.log(`Successfully found document: ${result.user}.`);
+      return result;
     
     } else {
       console.log("No document matches the provided query.");
+      return {
+        "msg": "nao encontrado"
+      }
          }
-    return result;
+    
   })
     
     // console.log("logs"+payload.query);
