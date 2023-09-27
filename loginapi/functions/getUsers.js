@@ -85,11 +85,16 @@ const projection = {
   .then(result => {
     console.log(result)
     if(result) {
-      return result;
+      return {
+        "status": true,
+        result
+        
+      };
     
     } else {
       console.log("No document matches the provided query.");
       return {
+        "status": false,
         "msg": "nao encontrado"
       }
          }
