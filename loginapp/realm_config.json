@@ -1,8 +1,0 @@
-{
-    "app_id": "loginapp-pttci",
-    "config_version": 20210101,
-    "name": "LoginApp",
-    "location": "US-VA",
-    "provider_region": "aws-us-east-1",
-    "deployment_model": "LOCAL"
-}
