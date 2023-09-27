@@ -2,8 +2,6 @@ exports = function (payload) {
   const body = payload.query;
   console.log("boduy" + body)
   
-   const filter = { _id: BSON.ObjectId(body.user) };
-   
   //const query = { "user": "admin", "password": "123" };
   const projection = {
     "user": 1,
@@ -35,8 +33,6 @@ exports = function (payload) {
     })
   } else {
     return{
-      filter,
-      
   "status": false}
   }
 };
