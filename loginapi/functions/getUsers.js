@@ -48,9 +48,49 @@
 //   };
 
 
+// exports = function (payload) {
+//     const body = payload.query;
+//     const mongodb = context.services.get("mongodb-atlas");
+//     const mycollection = mongodb.db("LoginDb").collection("Users");
+//     return mycollection.find().toArray();
+//   };
+
+// const query = { "reviews.0": { "$exists": true } };
+// const projection = { "_id": 0 };
+
+// return itemsCollection.find(query, projection)
+//   .sort({ name: 1 })
+//   .toArray()
+//   .then(items => {
+//     console.log(`Successfully found ${items.length} documents.`)
+//     items.forEach(console.log)
+//     return items
+//   })
+//   .catch(err => console.error(`Failed to find documents: ${err}`))
+
+
 exports = function (payload) {
-    const body = payload.query;
-    const mongodb = context.services.get("mongodb-atlas");
-    const mycollection = mongodb.db("LoginDb").collection("Users");
-    return mycollection.find().toArray();
-  };
+  const body = payload.query;
+    
+  //const query = { "user": "admin", "password":"123" };
+  
+  const mongodb = context.services.get("mongodb-atlas");
+  const mycollection = mongodb.db("LoginDb").collection("Users");
+  
+  return mycollection.findOne(body)
+  .then(result => {
+    if(result) {
+      return true;
+    } else {
+      return false;    }
+    
+  })
+    
+    // console.log("logs"+payload.query);
+    //   const body = payload.query;
+    //   const query = { "quantity": { "$gte": 25 } };
+    //   console.log("body" + body)
+    //   const mongodb = context.services.get("mongodb-atlas");
+    //   const mycollection = mongodb.db("LoginDb").collection("Users");
+    //   return mycollection.find().toArray();
+    };
