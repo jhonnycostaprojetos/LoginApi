@@ -2,7 +2,6 @@
     {
         "name": "getUsers",
         "private": false,
-        "run_as_system": true,
-        "disable_arg_logs": true
+        "run_as_system": true
     }
 ]
