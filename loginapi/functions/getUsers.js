@@ -75,8 +75,8 @@ exports = function (payload) {
   const query = { "user": "admin", "password":"123" };
   
 const projection = {
- "user": "",
- "password": "",
+ "user": 1,
+ "password": 1,
 }
   const mongodb = context.services.get("mongodb-atlas");
   const mycollection = mongodb.db("LoginDb").collection("Users");
