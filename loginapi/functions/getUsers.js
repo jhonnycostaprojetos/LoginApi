@@ -8,8 +8,8 @@ exports = function (payload) {
   const mongodb = context.services.get("mongodb-atlas");
   const mycollection = mongodb.db("LoginDb").collection("Users");
 
+ if(body){
   return
-  if(body){
   mycollection.findOne(body, projection)
     .then(result => {
     
