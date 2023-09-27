@@ -72,18 +72,26 @@
 exports = function (payload) {
   const body = payload.query;
     
-  //const query = { "user": "admin", "password":"123" };
+  const query = { "user": "admin", "password":"123" };
   
+const projection = {
+ "user": "",
+ "password": "",
+}
   const mongodb = context.services.get("mongodb-atlas");
   const mycollection = mongodb.db("LoginDb").collection("Users");
   
-  return mycollection.findOne(body)
+  return mycollection.findOne(body,projection)
+  
   .then(result => {
+    console.log(result)
     if(result) {
-      return true;
-    } else {
-      return false;    }
+      console.log(`Successfully found document: ${result.user}.`);
     
+    } else {
+      console.log("No document matches the provided query.");
+         }
+    return result;
   })
     
     // console.log("logs"+payload.query);
