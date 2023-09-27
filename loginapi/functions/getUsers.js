@@ -1,7 +1,5 @@
 exports = function (payload) {
-  const body = payload.query;
-
-  //const query = { "user": "admin", "password": "123" };
+  const query = payload.query;
   const projection = {
     "user": 1,
   }
@@ -9,7 +7,7 @@ exports = function (payload) {
   const mongodb = context.services.get("mongodb-atlas");
   const mycollection = mongodb.db("LoginDb").collection("Users");
   try {
-    return mycollection.findOne(body, projection)
+    return mycollection.findOne(query.User, projection)
       .then(result => {
         if (result) {
           return {
@@ -28,6 +26,6 @@ exports = function (payload) {
       })
 
   } catch (error) {
-    return { msg: "Erro ao atualizar campo: " + error.message };
+    return { msg: "Erro: " + error.message };
   }
 }
