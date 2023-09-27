@@ -95,7 +95,8 @@ const projection = {
       console.log("No document matches the provided query.");
       return {
         "status": false,
-        "msg": "nao encontrado"
+        "msg": "nao encontrado",
+        result
       }
          }
     
