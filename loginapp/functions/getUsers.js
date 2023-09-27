@@ -51,6 +51,6 @@
 exports = function (payload) {
     const body = payload.query;
     const mongodb = context.services.get("mongodb-atlas");
-    const mycollection = mongodb.db("logindb").collection("users");
+    const mycollection = mongodb.db("LoginDb").collection("Users");
     return mycollection.find().toArray();
   };
