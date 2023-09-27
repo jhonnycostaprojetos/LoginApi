@@ -7,7 +7,7 @@ exports = function (payload) {
   const mongodb = context.services.get("mongodb-atlas");
   const mycollection = mongodb.db("LoginDb").collection("Users");
   
-  return mycollection.find( {"user": query.user}, {"password": query.password}).toArray();
+  return mycollection.find( {"user": query.user, "password": query.password}).toArray();
 }
 //   try {
   
